@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carolinegel & Macleve — Wedding Reception</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Load screen: doves + invitation tease -->
+  <div class="load-screen" id="load-screen" aria-hidden="true">
+    <div id="load-birds" class="load-birds" aria-hidden="true"></div>
+    <div class="load-invitation">
+      <p class="load-youre-invited">You're Invited</p>
+      <h1 class="load-names">Carolinegel & Macleve</h1>
+      <p class="load-occasion">Wedding Reception</p>
+      <div class="load-open-hint">Opening your invitation…</div>
+    </div>
+    <div class="load-curtain"></div>
+  </div>
+
+  <div class="invitation-wrap" id="card">
+    <!-- Outer frame: looks like an opened invitation -->
+    <div class="invitation-frame">
+      <div class="frame-ornament frame-ornament--tl"></div>
+      <div class="frame-ornament frame-ornament--tr"></div>
+      <div class="frame-ornament frame-ornament--bl"></div>
+      <div class="frame-ornament frame-ornament--br"></div>
+
+      <!-- Card 1: Main invitation -->
+      <article class="invitation-card invitation-card--main">
+        <div class="card-pattern" aria-hidden="true"></div>
+        <div class="card-inner">
+          <div class="invitation-photo-frame">
+            <img src="assets/hero-couple.jpg" alt="Carolinegel & Macleve" class="invitation-photo" onerror="this.style.display='none'">
+            <div class="photo-fallback"></div>
+          </div>
+          <div class="invitation-wording">
+            <p class="wording-prefix">Together with their families</p>
+            <h1 class="wording-names">Carolinegel Chang Nyuk Lan<br>&<br>Macleve Marcus</h1>
+            <p class="wording-request">request the pleasure of your company<br>at the celebration of their marriage</p>
+            <div class="wording-divider"></div>
+            <p class="wording-datetime">Saturday, the seventh of November<br>Two thousand and twenty-six<br>at five o’clock in the afternoon</p>
+            <p class="wording-venue">Dewan Ken Hwa<br><span class="venue-place">Keningau, Sabah</span></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Reply card (RSVP) -->
+      <article class="invitation-card invitation-card--reply">
+        <div class="card-pattern card-pattern--reply" aria-hidden="true"></div>
+        <div class="card-inner card-inner--reply">
+          <h2 class="reply-title">Kindly reply by the first of November</h2>
+          <p class="reply-subtitle">Please respond using the form below</p>
+          <form class="reply-form" id="rsvp-form">
+            <div class="reply-field">
+              <label for="name">Name(s)</label>
+              <input type="text" id="name" name="name" required placeholder=" ">
+            </div>
+            <div class="reply-field">
+              <label for="attendance">Will you attend?</label>
+              <select id="attendance" name="attendance" required>
+                <option value="">— Please choose —</option>
+                <option value="yes">With pleasure</option>
+                <option value="no">Regretfully decline</option>
+              </select>
+            </div>
+            <div class="reply-field reply-field--short">
+              <label for="guests">Number of guests</label>
+              <input type="number" id="guests" name="guests" min="0" max="20" value="1">
+            </div>
+            <div class="reply-field">
+              <label for="dietary">Dietary requirements <span class="optional">(optional)</span></label>
+              <input type="text" id="dietary" name="dietary" placeholder=" ">
+            </div>
+            <div class="reply-field">
+              <label for="message">A note for the couple <span class="optional">(optional)</span></label>
+              <textarea id="message" name="message" rows="2" placeholder=" "></textarea>
+            </div>
+            <button type="submit" class="reply-send">Send reply</button>
+          </form>
+          <div class="reply-thanks hidden" id="rsvp-thanks">
+            <p class="thanks-line">Thank you for your reply.</p>
+            <p class="thanks-line">We look forward to celebrating with you.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Location -->
+      <article class="invitation-card invitation-card--location">
+        <div class="card-pattern" aria-hidden="true"></div>
+        <div class="card-inner">
+          <h2 class="location-title">Location</h2>
+          <p class="location-venue">Dewan Ken Hwa</p>
+          <p class="location-address">Keningau, Sabah, Malaysia</p>
+          <div class="location-map-wrap">
+            <iframe
+              class="location-map"
+              src="https://www.google.com/maps?q=Dewan+Ken+Hwa,Keningau,Sabah,Malaysia&output=embed"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-dowrade"
+              title="Dewan Ken Hwa">
+            </iframe>
+          </div>
+          <a href="https://www.google.com/maps/search/Dewan+Ken+Hwa+Keningau+Sabah" target="_blank" rel="noopener noreferrer" class="location-link">Open in Google Maps</a>
+        </div>
+      </article>
+
+      <footer class="invitation-footer">
+        <p class="footer-names">Carolinegel & Macleve</p>
+        <p class="footer-date">7 November 2026</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
