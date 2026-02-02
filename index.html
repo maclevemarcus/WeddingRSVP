@@ -3,342 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carolinegel & Macleve – Wedding Invitation</title>
+  <title>Carolinegel & Macleve — Wedding Reception</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Tangerine:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Great+Vibes&family=Pinyon+Script&family=Alex+Brush&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Canvas for particles -->
-  <canvas id="particles-canvas"></canvas>
-  
-  <!-- Wax seal that "breaks" when clicked -->
-  <div class="seal-entrance" id="seal-entrance">
-    <div class="wax-seal">
-      <div class="seal-stamp">
-        <div class="seal-monogram">C & M</div>
-        <div class="seal-date">07.11.26</div>
-      </div>
-      <div class="wax-drips"></div>
+  <!-- Load screen: doves + invitation tease -->
+  <div class="load-screen" id="load-screen" aria-hidden="true">
+    <div id="load-birds" class="load-birds" aria-hidden="true"></div>
+    <div class="load-invitation">
+      <p class="load-youre-invited">You're Invited</p>
+      <h1 class="load-names">Carolinegel & Macleve</h1>
+      <p class="load-occasion">Wedding Reception</p>
+      <div class="load-open-hint">Opening your invitation…</div>
     </div>
-    <div class="seal-crack"></div>
-    <div class="seal-break-text">Tap to open</div>
+    <div class="load-curtain"></div>
   </div>
 
-  <!-- Main invitation - folded card design -->
-  <div class="invitation-container" id="invitation">
-    
-    <!-- The actual invitation card with organic shape -->
-    <div class="invitation-card" id="card">
+  <div class="invitation-wrap" id="card">
+    <!-- Outer frame: looks like an opened invitation -->
+    <div class="invitation-frame">
+      <div class="frame-ornament frame-ornament--tl"></div>
+      <div class="frame-ornament frame-ornament--tr"></div>
+      <div class="frame-ornament frame-ornament--bl"></div>
+      <div class="frame-ornament frame-ornament--br"></div>
 
-      <!-- Left page (cover) -->
-      <div class="card-page card-left">
-        <div class="paper-texture"></div>
-        <div class="embossed-border"></div>
-        
-        <!-- Cover content with ornate botanical frame -->
-        <div class="cover-content">
-          <!-- Ornate SVG Frame Border -->
-          <svg class="ornate-frame-border" viewBox="0 0 400 520" preserveAspectRatio="none">
-            <!-- Top left corner - flowing botanical -->
-            <path d="M5,15 Q5,5 15,5 Q20,5 25,8 M15,5 L25,15 Q28,20 25,25" 
-                  stroke="currentColor" fill="none" stroke-width="1.2" opacity="0.7"/>
-            <path d="M20,10 Q25,8 30,12 L28,18 Q25,20 22,16 Z" fill="currentColor" opacity="0.5"/>
-            
-            <!-- Top border - elegant leaves -->
-            <path d="M60,8 L50,5 Q55,3 60,5 Q65,7 70,5 Q75,3 80,5 L70,8 Q65,10 60,8 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M120,6 L110,3 Q118,2 125,5 Q130,7 135,5 Q142,2 150,3 L140,6 Q130,9 120,6 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M190,8 L180,5 Q185,3 190,5 Q195,7 200,5 Q205,3 210,5 L200,8 Q195,10 190,8 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M250,6 L240,3 Q248,2 255,5 Q260,7 265,5 Q272,2 280,3 L270,6 Q260,9 250,6 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            
-            <!-- Top right corner -->
-            <path d="M395,15 Q395,5 385,5 Q380,5 375,8 M385,5 L375,15 Q372,20 375,25" 
-                  stroke="currentColor" fill="none" stroke-width="1.2" opacity="0.7"/>
-            <path d="M380,10 Q375,8 370,12 L372,18 Q375,20 378,16 Z" fill="currentColor" opacity="0.5"/>
-            
-            <!-- Left border - vine leaves -->
-            <path d="M8,70 L5,60 Q4,65 6,70 Q8,75 6,80 Q4,85 5,90 L8,80 Q10,75 8,70 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M10,130 L7,120 Q5,128 8,135 Q10,142 8,148 Q5,155 7,162 L10,152 Q13,143 10,130 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M8,200 L5,190 Q4,195 6,200 Q8,205 6,210 Q4,215 5,220 L8,210 Q10,205 8,200 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M10,260 L7,250 Q5,258 8,265 Q10,272 8,278 Q5,285 7,292 L10,282 Q13,273 10,260 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M8,330 L5,320 Q4,325 6,330 Q8,335 6,340 Q4,345 5,350 L8,340 Q10,335 8,330 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            
-            <!-- Right border - vine leaves -->
-            <path d="M392,70 L395,60 Q396,65 394,70 Q392,75 394,80 Q396,85 395,90 L392,80 Q390,75 392,70 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M390,130 L393,120 Q395,128 392,135 Q390,142 392,148 Q395,155 393,162 L390,152 Q387,143 390,130 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M392,200 L395,190 Q396,195 394,200 Q392,205 394,210 Q396,215 395,220 L392,210 Q390,205 392,200 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M390,260 L393,250 Q395,258 392,265 Q390,272 392,278 Q395,285 393,292 L390,282 Q387,273 390,260 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M392,330 L395,320 Q396,325 394,330 Q392,335 394,340 Q396,345 395,350 L392,340 Q390,335 392,330 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            
-            <!-- Bottom border - elegant leaves -->
-            <path d="M60,512 L50,515 Q55,517 60,515 Q65,513 70,515 Q75,517 80,515 L70,512 Q65,510 60,512 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M120,514 L110,517 Q118,518 125,515 Q130,513 135,515 Q142,518 150,517 L140,514 Q130,511 120,514 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M190,512 L180,515 Q185,517 190,515 Q195,513 200,515 Q205,517 210,515 L200,512 Q195,510 190,512 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            <path d="M250,514 L240,517 Q248,518 255,515 Q260,513 265,515 Q272,518 280,517 L270,514 Q260,511 250,514 Z" 
-                  fill="currentColor" opacity="0.45" stroke="currentColor" stroke-width="0.5"/>
-            
-            <!-- Bottom left corner -->
-            <path d="M5,505 Q5,515 15,515 Q20,515 25,512 M15,515 L25,505 Q28,500 25,495" 
-                  stroke="currentColor" fill="none" stroke-width="1.2" opacity="0.7"/>
-            <path d="M20,510 Q25,512 30,508 L28,502 Q25,500 22,504 Z" fill="currentColor" opacity="0.5"/>
-            
-            <!-- Bottom right corner -->
-            <path d="M395,505 Q395,515 385,515 Q380,515 375,512 M385,515 L375,505 Q372,500 375,495" 
-                  stroke="currentColor" fill="none" stroke-width="1.2" opacity="0.7"/>
-            <path d="M380,510 Q375,512 370,508 L372,502 Q375,500 378,504 Z" fill="currentColor" opacity="0.5"/>
-            
-            <!-- Flowing vines connecting corners to leaves -->
-            <path d="M35,20 Q40,25 45,30 Q48,35 50,40" stroke="currentColor" fill="none" stroke-width="0.8" opacity="0.4"/>
-            <path d="M365,20 Q360,25 355,30 Q352,35 350,40" stroke="currentColor" fill="none" stroke-width="0.8" opacity="0.4"/>
-            <path d="M35,500 Q40,495 45,490 Q48,485 50,480" stroke="currentColor" fill="none" stroke-width="0.8" opacity="0.4"/>
-            <path d="M365,500 Q360,495 355,490 Q352,485 350,480" stroke="currentColor" fill="none" stroke-width="0.8" opacity="0.4"/>
-          </svg>
-          
-          <div class="hero-image-frame">
-            <div class="frame-inner">
-              <img src="assets/hero-couple.jpg" alt="Carolinegel & Macleve" class="hero-image">
-              <div class="cover-names-overlay">
-                <h2 class="cover-couple-names">Carolinegel & Macleve</h2>
-                <p class="cover-date">07 • 11 • 2026</p>
-              </div>
-            </div>
+      <!-- Card 1: Main invitation -->
+      <article class="invitation-card invitation-card--main">
+        <div class="card-pattern" aria-hidden="true"></div>
+        <div class="card-inner">
+          <div class="invitation-photo-frame">
+            <img src="assets/hero-couple.jpg" alt="Carolinegel & Macleve" class="invitation-photo" onerror="this.style.display='none'">
+            <div class="photo-fallback"></div>
+          </div>
+          <div class="invitation-wording">
+            <p class="wording-prefix">Together with their families</p>
+            <h1 class="wording-names">Carolinegel Chang Nyuk Lan<br>&<br>Macleve Marcus</h1>
+            <p class="wording-request">request the pleasure of your company<br>at the celebration of their marriage</p>
+            <div class="wording-divider"></div>
+            <p class="wording-datetime">Saturday, the seventh of November<br>Two thousand and twenty-six<br>at five o’clock in the afternoon</p>
+            <p class="wording-venue">Dewan Ken Hwa<br><span class="venue-place">Keningau, Sabah</span></p>
           </div>
         </div>
-        
-        <!-- Pressed flowers decoration -->
-        <div class="pressed-flowers pressed-flowers-tl"></div>
-        <div class="pressed-flowers pressed-flowers-tr"></div>
-      </div>
+      </article>
 
-      <!-- Right page (main content) -->
-      <div class="card-page card-right">
-        <div class="paper-texture"></div>
-        <div class="embossed-border"></div>
-        <div class="card-content">
-          
-          <!-- Header -->
-          <div class="invitation-header">
-            <svg class="decorative-flourish flourish-top" viewBox="0 0 200 40" preserveAspectRatio="xMidYMid meet">
-              <path d="M10,20 Q50,10 100,20 T190,20" stroke="currentColor" fill="none" stroke-width="1"/>
-              <circle cx="100" cy="20" r="3" fill="currentColor"/>
-            </svg>
-            
-            <p class="invitation-prefix">Together with their families</p>
-            
-            <h1 class="couple-names">
-              <span class="bride-name">Carolinegel</span>
-              <span class="surname">Chang Nyuk Lan</span>
-              <svg class="ampersand" viewBox="0 0 60 60">
-                <text x="30" y="45" text-anchor="middle" font-size="40" font-family="'Great Vibes', cursive">&</text>
-              </svg>
-              <span class="groom-name">Macleve</span>
-              <span class="surname">Marcus</span>
-            </h1>
-            
-            <svg class="decorative-flourish flourish-bottom" viewBox="0 0 200 40" preserveAspectRatio="xMidYMid meet">
-              <path d="M10,20 Q50,10 100,20 T190,20" stroke="currentColor" fill="none" stroke-width="1"/>
-              <circle cx="100" cy="20" r="3" fill="currentColor"/>
-            </svg>
-          </div>
-
-          <!-- Request -->
-          <div class="invitation-request">
-            <p>request the pleasure of your company</p>
-            <p>at the celebration of their marriage</p>
-          </div>
-
-          <!-- Event Details -->
-          <div class="event-details">
-            <div class="detail-group detail-when">
-              <div class="detail-icon">📅</div>
-              <div class="detail-content">
-                <h3 class="detail-label">When</h3>
-                <p class="detail-value">Saturday</p>
-                <p class="detail-value detail-year">7th November 2026</p>
-                <p class="detail-time">5:00 in the afternoon</p>
-              </div>
+      <!-- Card 2: Reply card (RSVP) -->
+      <article class="invitation-card invitation-card--reply">
+        <div class="card-pattern card-pattern--reply" aria-hidden="true"></div>
+        <div class="card-inner card-inner--reply">
+          <h2 class="reply-title">Kindly reply by the first of November</h2>
+          <p class="reply-subtitle">Please respond using the form below</p>
+          <form class="reply-form" id="rsvp-form">
+            <div class="reply-field">
+              <label for="name">Name(s)</label>
+              <input type="text" id="name" name="name" required placeholder=" ">
             </div>
-
-            <div class="detail-group detail-where">
-              <div class="detail-icon">📍</div>
-              <div class="detail-content">
-                <h3 class="detail-label">Where</h3>
-                <p class="detail-venue">Dewan Ken Hwa</p>
-                <p class="detail-location">Keningau, Sabah</p>
-              </div>
+            <div class="reply-field">
+              <label for="attendance">Will you attend?</label>
+              <select id="attendance" name="attendance" required>
+                <option value="">— Please choose —</option>
+                <option value="yes">With pleasure</option>
+                <option value="no">Regretfully decline</option>
+              </select>
             </div>
+            <div class="reply-field reply-field--short">
+              <label for="guests">Number of guests</label>
+              <input type="number" id="guests" name="guests" min="0" max="20" value="1">
+            </div>
+            <div class="reply-field">
+              <label for="dietary">Dietary requirements <span class="optional">(optional)</span></label>
+              <input type="text" id="dietary" name="dietary" placeholder=" ">
+            </div>
+            <div class="reply-field">
+              <label for="message">A note for the couple <span class="optional">(optional)</span></label>
+              <textarea id="message" name="message" rows="2" placeholder=" "></textarea>
+            </div>
+            <button type="submit" class="reply-send">Send reply</button>
+          </form>
+          <div class="reply-thanks hidden" id="rsvp-thanks">
+            <p class="thanks-line">Thank you for your reply.</p>
+            <p class="thanks-line">We look forward to celebrating with you.</p>
           </div>
-
-          <!-- Decorative Divider -->
-          <div class="decorative-divider">
-            <span class="divider-ornament">❖</span>
-          </div>
-
         </div>
-        
-        <!-- Pressed flowers decoration -->
-        <div class="pressed-flowers pressed-flowers-bl"></div>
-        <div class="pressed-flowers pressed-flowers-br"></div>
-      </div>
+      </article>
 
-    </div>
-
-    <!-- RSVP Card (separate from main invitation) -->
-    <div class="rsvp-card">
-      <div class="paper-texture"></div>
-      <!-- <div class="paperclip"></div> -->
-      
-      <div class="rsvp-content">
-        <div class="rsvp-header">
-          <h3 class="rsvp-title">Kindly Respond</h3>
-          <p class="rsvp-deadline">by the first of November</p>
-        </div>
-
-        <form class="rsvp-form" id="rsvp-form">
-          <div class="form-group">
-            <label class="form-label">
-              <span class="label-text">Your Name</span>
-              <span class="label-line"></span>
-              <input type="text" name="name" class="form-input" required placeholder="Enter your full name">
-            </label>
-          </div>
-
-          <div class="form-group">
-            <span class="label-text" style="display: block; margin-bottom: 1rem;">Will you attend?</span>
-            <div class="attendance-options">
-              <label class="attendance-option">
-                <input type="radio" name="attendance" value="yes" required>
-                <span class="option-custom">
-                  <span class="option-check">✓</span>
-                  <span class="option-text">With pleasure</span>
-                </span>
-              </label>
-              <label class="attendance-option">
-                <input type="radio" name="attendance" value="no">
-                <span class="option-custom">
-                  <span class="option-check">✓</span>
-                  <span class="option-text">Regretfully decline</span>
-                </span>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group form-group-small">
-              <label class="form-label">
-                <span class="label-text">Guests</span>
-                <span class="label-line"></span>
-                <input type="number" name="guests" class="form-input" min="1" max="10" value="1">
-              </label>
-            </div>
-            <div class="form-group form-group-grow">
-              <label class="form-label">
-                <span class="label-text">Dietary requirements <em>(optional)</em></span>
-                <span class="label-line"></span>
-                <input type="text" name="dietary" class="form-input" placeholder="Any dietary restrictions">
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">
-              <span class="label-text">A note for the couple <em>(optional)</em></span>
-              <span class="label-line"></span>
-              <textarea name="message" class="form-textarea" rows="3" placeholder="Your wishes and congratulations"></textarea>
-            </label>
-          </div>
-
-          <button type="submit" class="rsvp-submit">
-            <span>Send RSVP</span>
-            <span class="submit-arrow">→</span>
-          </button>
-        </form>
-
-        <!-- Thank you state -->
-        <div class="rsvp-thanks hidden" id="rsvp-thanks">
-          <div class="thanks-seal">
-            <span class="thanks-check">✓</span>
-          </div>
-          <h4 class="thanks-title">Thank you for your reply</h4>
-          <p class="thanks-message">We look forward to celebrating with you</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Location Card (separate) -->
-    <div class="location-card">
-      <div class="paper-texture"></div>
-      <!-- <div class="postcard-stamp">
-        <div class="stamp-content">
-          <div class="stamp-icon">📍</div>
-          <div class="stamp-text">Location</div>
-        </div>
-      </div> -->
-      
-      <div class="location-content">
-        <h3 class="location-title">Location</h3>
-
-        <div class="location-details">
-          <p class="location-name">Dewan Ken Hwa</p>
+      <!-- Card 3: Location -->
+      <article class="invitation-card invitation-card--location">
+        <div class="card-pattern" aria-hidden="true"></div>
+        <div class="card-inner">
+          <h2 class="location-title">Location</h2>
+          <p class="location-venue">Dewan Ken Hwa</p>
           <p class="location-address">Keningau, Sabah, Malaysia</p>
-        </div>
-
-        <div class="map-container">
-          <div class="map-frame">
+          <div class="location-map-wrap">
             <iframe
               class="location-map"
               src="https://www.google.com/maps?q=Dewan+Ken+Hwa,Keningau,Sabah,Malaysia&output=embed"
               allowfullscreen=""
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
+              referrerpolicy="no-referrer-when-dowrade"
               title="Dewan Ken Hwa">
             </iframe>
           </div>
+          <a href="https://www.google.com/maps/search/Dewan+Ken+Hwa+Keningau+Sabah" target="_blank" rel="noopener noreferrer" class="location-link">Open in Google Maps</a>
         </div>
+      </article>
 
-        <a href="https://www.google.com/maps/search/Dewan+Ken+Hwa+Keningau+Sabah" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="map-link">
-          <span class="link-icon">📍</span>
-          <span class="link-text">Open in Google Maps</span>
-        </a>
-      </div>
+      <footer class="invitation-footer">
+        <p class="footer-names">Carolinegel & Macleve</p>
+        <p class="footer-date">7 November 2026</p>
+      </footer>
     </div>
-
-  </div>
-  
-  <!-- Falling petals background effect -->
-  <div class="petals-fall"></div>
-  
-  <!-- Footer -->
-  <div class="invitation-footer">
-    <svg class="footer-flourish" viewBox="0 0 300 50" preserveAspectRatio="xMidYMid meet">
-      <path d="M10,25 Q75,15 150,25 T290,25" stroke="currentColor" fill="none" stroke-width="1"/>
-      <circle cx="150" cy="25" r="3" fill="currentColor"/>
-    </svg>
-    <p class="footer-names">Carolinegel & Macleve</p>
-    <p class="footer-date">7 • 11 • 2026</p>
-    <p class="footer-hashtag">#CarolinegelAndMacleve</p>
-    <div class="footer-heart">♥</div>
   </div>
 
   <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
